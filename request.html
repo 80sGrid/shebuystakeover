@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request the Media Kit — Sole Sponsor Takeover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1F3D3A;
+    --ivory: #F7F2E7;
+    --brass: #A9823B;
+    --rust: #A8492E;
+    --charcoal: #2A2A28;
+    --muted: #6E6A5E;
+    --line: #D9D1BC;
+    --card: #FFFDF8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    padding: 48px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .ticket {
+    max-width: 640px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 4px;
+    box-shadow: 0 1px 0 var(--line);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .ticket-header {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 28px 32px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .ticket-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+  .ticket-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .ticket-header .route {
+    text-align: right;
+    font-size: 12px;
+    color: #C9D6D0;
+    line-height: 1.6;
+  }
+  .ticket-header .route strong {
+    display: block;
+    color: var(--ivory);
+    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+  }
+  form { padding: 32px; }
+  .row { display: flex; gap: 16px; margin-bottom: 18px; }
+  .field { flex: 1; margin-bottom: 18px; }
+  .row .field { margin-bottom: 0; }
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--charcoal);
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+  textarea { resize: vertical; min-height: 70px; }
+  .hint {
+    font-size: 12px;
+    color: var(--brass);
+    margin-top: 6px;
+    display: none;
+  }
+  .hint.show { display: block; }
+  .perforation {
+    position: relative;
+    border-top: 2px dashed var(--line);
+    margin: 8px 0 0;
+  }
+  .stub {
+    padding: 20px 32px 28px;
+    background: #FBF7EE;
+  }
+  .stub-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .stub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+  }
+  button {
+    width: 100%;
+    background: var(--ink);
+    color: var(--ivory);
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  button:hover { background: #16302D; }
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 18px 32px 28px;
+  }
+  .footer-note a { color: var(--ink); font-weight: 600; text-decoration: none; }
+  .confirm {
+    display: none;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .confirm.show { display: block; }
+  .confirm h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  .confirm p { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="ticket">
+
+  <div class="ticket-header">
+    <div>
+      <p class="eyebrow">Sole sponsor takeover</p>
+      <h1>Request the<br>media kit</h1>
+    </div>
+    <div class="route">
+      <strong>She Buys Travel</strong>
+      Sept 2026 &ndash; Jan 2027<br>
+      One brand. Every page.
+    </div>
+  </div>
+
+  <form id="sponsorForm">
+    <div class="row">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" required>
+      </div>
+    </div>
+
+    <div class="field" style="margin-bottom: 18px;">
+      <label for="email">Work email</label>
+      <input type="email" id="email" name="email" required placeholder="name@company.com">
+      <p class="hint" id="emailHint">Looks like a personal email address. That's fine, just let us know your company above so we can route this correctly.</p>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="role">You're reaching out as</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="brand">Brand-side marketer</option>
+          <option value="agency">Agency (media/planning)</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="month">Month of interest</label>
+        <select id="month" name="month" required>
+          <option value="" disabled selected>Select a month</option>
+          <option value="september">September 2026 (founding sponsor)</option>
+          <option value="october">October 2026</option>
+          <option value="november">November 2026</option>
+          <option value="december">December 2026</option>
+          <option value="january">January 2027</option>
+          <option value="unsure">Not sure yet</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="message">Anything we should know</label>
+      <textarea id="message" name="message" placeholder="Budget range, timing, questions about the package..."></textarea>
+    </div>
+
+    <button type="submit">Submit interest</button>
+  </form>
+
+  <div class="confirm" id="confirmMsg">
+    <h2>Request received</h2>
+    <p>We'll follow up within one business day with the full media kit and current auction status.</p>
+  </div>
+
+  <div class="perforation"></div>
+  <p class="footer-note">Prefer email? Reach us directly at <a href="mailto:K.Orlando@shebuystravel.com">K.Orlando@shebuystravel.com</a></p>
+
+</div>
+
+<script>
+  const freeDomains = ['gmail.com','yahoo.com','outlook.com','hotmail.com','icloud.com','aol.com','live.com','msn.com'];
+  const emailInput = document.getElementById('email');
+  const emailHint = document.getElementById('emailHint');
+
+  emailInput.addEventListener('blur', function() {
+    const domain = emailInput.value.split('@')[1] ? emailInput.value.split('@')[1].toLowerCase() : '';
+    if (freeDomains.includes(domain)) {
+      emailHint.classList.add('show');
+    } else {
+      emailHint.classList.remove('show');
+    }
+  });
+
+  document.getElementById('sponsorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Replace this fetch target with your real Formspree (or equivalent) endpoint.
+    // Sign up at https://formspree.io, create a form, and paste the endpoint URL below.
+    const ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+
+    const data = new FormData(e.target);
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      document.getElementById('sponsorForm').style.display = 'none';
+      document.getElementById('confirmMsg').classList.add('show');
+    }).catch(error => {
+      alert('Something went wrong submitting the form. Please email K.Orlando@shebuystravel.com directly.');
+    });
+  });
+</script>
+
+</body>
+</html>

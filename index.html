@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Buys Travel — Sole Sponsor Auction</title>
+<style>
+  :root{
+    --navy:#1b2a4a;
+    --coral:#e8643c;
+    --teal:#2fc3d2;
+    --sand:#f6f1e9;
+    --cream:#fffaf3;
+    --gold:#c99a3c;
+    --ink:#2a2a2a;
+    --line:#e4dcc9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Georgia', 'Times New Roman', serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.55;
+  }
+  h1,h2,h3{font-family:'Helvetica Neue', Arial, sans-serif;}
+  .eyebrow{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--coral);
+  }
+  header.hero{
+    background:linear-gradient(160deg,var(--navy) 0%, #263a63 100%);
+    color:#fff;
+    padding:40px 24px 56px;
+    text-align:center;
+  }
+  header.hero .logo-svg{
+    width:clamp(160px,42vw,240px);
+    height:auto;
+    margin:0 auto 22px;
+    display:block;
+  }
+  header.hero .eyebrow{color:#f0b98c;}
+  header.hero h1{
+    font-family:'Georgia', serif;
+    font-size:clamp(2.1rem,5vw,3.4rem);
+    font-weight:700;
+    margin:14px auto 10px;
+    max-width:820px;
+  }
+  header.hero p.sub{
+    max-width:640px;
+    margin:0 auto;
+    font-size:1.05rem;
+    color:#d9dfec;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+
+  /* video section */
+  section.video-section{
+    padding:48px 24px 8px;
+  }
+  .video-frame{
+    max-width:900px;
+    margin:0 auto;
+    background:#0f1830;
+    border-radius:14px;
+    aspect-ratio:16/9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    box-shadow:0 18px 40px rgba(27,42,74,.28);
+    overflow:hidden;
+  }
+  .video-frame::before{
+    content:"";
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 45%, rgba(232,100,60,.18), transparent 60%);
+  }
+  .video-caption{
+    text-align:center;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.85rem;
+    color:#8a8478;
+    margin-top:14px;
+  }
+
+  /* intro / Kim message */
+  section.intro-section{
+    padding:52px 24px 8px;
+    text-align:center;
+  }
+  section.intro-section .section-lede{
+    margin:0 auto 30px;
+  }
+  .kim-card{
+    max-width:400px;
+    margin:0 auto;
+  }
+  .kim-frame{
+    background:#0f1830;
+    border-radius:14px;
+    aspect-ratio:16/9;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 12px 28px rgba(27,42,74,.22);
+    border:3px solid #fff;
+    outline:1px solid var(--line);
+  }
+  .kim-meta{
+    margin-top:14px;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  .kim-meta .name{
+    font-weight:700;
+    font-size:.94rem;
+    color:var(--navy);
+  }
+  .kim-meta .title{
+    font-size:.8rem;
+    color:#8a8478;
+    margin-top:2px;
+  }
+  .divider{
+    max-width:60px;
+    height:3px;
+    background:var(--coral);
+    border-radius:2px;
+    margin:40px auto 0;
+  }
+
+  /* CTA button */
+  .cta-btn{
+    display:inline-block;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:.92rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    color:#fff;
+    background:var(--coral);
+    padding:15px 34px;
+    border-radius:8px;
+    box-shadow:0 10px 24px rgba(232,100,60,.28);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 14px 28px rgba(232,100,60,.34);
+  }
+  .cta-wrap{
+    text-align:center;
+    margin-top:28px;
+  }
+  header.hero .cta-wrap{margin-top:32px;}
+  .cta-note{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.78rem;
+    color:#d9dfec;
+    margin-top:10px;
+  }
+  section .cta-note{color:#8a8478;}
+
+  /* sections */
+  section{padding:52px 24px;}
+  section.alt{background:var(--sand);}
+  h2.section-title{
+    font-size:clamp(1.5rem,3vw,2rem);
+    color:var(--navy);
+    margin-bottom:6px;
+  }
+  p.section-lede{
+    max-width:760px;
+    color:#5a5648;
+    margin-bottom:30px;
+  }
+
+  /* stats */
+  .stats-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .stat{
+    text-align:center;
+    padding:22px 12px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+  }
+  .stat .num{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:1.9rem;
+    color:var(--coral);
+  }
+  .stat .lbl{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:#6b6656;
+    margin-top:6px;
+  }
+
+  /* owns grid */
+  .owns-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .owns-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+  }
+  .owns-card h3{
+    font-size:1.05rem;
+    color:var(--navy);
+    margin-bottom:8px;
+  }
+  .owns-card p{color:#5a5648;font-size:.94rem;}
+
+  /* competitive table */
+  .table-scroll{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  table.comp{
+    width:100%;
+    min-width:560px;
+    border-collapse:collapse;
+    background:#fff;
+    font-size:.92rem;
+  }
+  table.comp th, table.comp td{
+    padding:14px 16px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.comp th{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    text-transform:uppercase;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:#6b6656;
+    background:var(--sand);
+  }
+  table.comp tr.highlight td{
+    background:#fdf1ea;
+    font-weight:600;
+  }
+  table.comp tr.highlight td:first-child{color:var(--coral);}
+
+  /* unique points */
+  .points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .point .idx{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    color:var(--gold);
+    font-size:.85rem;
+    letter-spacing:.08em;
+    margin-bottom:6px;
+  }
+  .point h3{color:var(--navy);font-size:1.08rem;margin-bottom:8px;}
+  .point p{color:#5a5648;font-size:.93rem;}
+
+  /* auction details */
+  .auction-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:32px;
+    max-width:1040px;
+    margin:0 auto;
+    align-items:start;
+  }
+  dl.terms{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    row-gap:14px;
+    column-gap:18px;
+    font-size:.94rem;
+  }
+  dl.terms dt{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    color:var(--navy);
+    white-space:nowrap;
+  }
+  dl.terms dd{color:#5a5648;}
+
+  .timeline{
+    display:flex;
+    justify-content:space-between;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 14px;
+  }
+  .timeline .slot{
+    text-align:center;
+    flex:1;
+  }
+  .timeline .slot .dot{
+    width:12px;height:12px;
+    border-radius:50%;
+    background:var(--coral);
+    margin:0 auto 8px;
+  }
+  .timeline .slot .m{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:.86rem;
+    color:var(--navy);
+  }
+  .timeline .slot .y{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.72rem;
+    color:#8a8478;
+  }
+  .timeline-caption{
+    font-size:.85rem;
+    color:#5a5648;
+    margin-top:14px;
+  }
+
+  /* closing line */
+  .closing{
+    text-align:center;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--navy);
+    padding:44px 24px;
+  }
+
+  footer{
+    background:var(--navy);
+    color:#dfe4ef;
+    text-align:center;
+    padding:40px 24px;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  footer .eyebrow{color:#f0b98c;margin-bottom:8px;}
+  footer h3{font-size:1.3rem;color:#fff;margin-bottom:8px;font-family:'Georgia',serif;}
+  footer p{font-size:.92rem;color:#b9c1d6;}
+  footer .contact-line{margin-top:6px;}
+
+  @media (max-width:760px){
+    header.hero .logo-svg{width:clamp(140px,52vw,200px);margin-bottom:16px;}
+    header.hero{padding:32px 20px 40px;}
+    section{padding:40px 20px;}
+    .stats-row{grid-template-columns:1fr 1fr;}
+    .owns-grid{grid-template-columns:1fr;}
+    .points{grid-template-columns:1fr;}
+    .auction-grid{grid-template-columns:1fr;}
+    table.comp{font-size:.82rem;}
+    .timeline{flex-wrap:wrap;gap:16px;}
+    .timeline .slot{flex:1 1 30%;}
+  }
+  @media (max-width:420px){
+    .stats-row{grid-template-columns:1fr;}
+    dl.terms{grid-template-columns:1fr;row-gap:4px;}
+    dl.terms dd{margin-bottom:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="logo-svg" viewBox="0 0 600 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="She Buys Travel logo">
+    <text x="0" y="118" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="112" fill="#5fd6e3" letter-spacing="-2">she</text>
+    <g transform="translate(258,70)">
+      <g fill="#5fd6e3">
+        <path transform="rotate(0)"   d="M0,0 C-11,-22 -7,-48 0,-62 C7,-48 11,-22 0,0 Z"/>
+        <path transform="rotate(120)" d="M0,0 C-9,-18 -6,-38 0,-50 C6,-38 9,-18 0,0 Z"/>
+        <path transform="rotate(240)" d="M0,0 C-9,-19 -6,-40 0,-53 C6,-40 9,-19 0,0 Z"/>
+      </g>
+      <g fill="#f0895e">
+        <path transform="rotate(60)"  d="M0,0 C-10,-20 -6,-42 0,-56 C6,-42 10,-20 0,0 Z"/>
+        <path transform="rotate(180)" d="M0,0 C-9,-19 -6,-40 0,-53 C6,-40 9,-19 0,0 Z"/>
+        <path transform="rotate(300)" d="M0,0 C-11,-22 -7,-46 0,-60 C7,-46 11,-22 0,0 Z"/>
+      </g>
+      <circle cx="0" cy="-4" r="26" fill="#1b2a4a" stroke="#5fd6e3" stroke-width="7"/>
+      <circle cx="0" cy="-4" r="8" fill="#5fd6e3"/>
+    </g>
+    <text x="330" y="118" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="112" fill="#f0895e" letter-spacing="-2">buys</text>
+    <text x="562" y="46" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="22" fill="#f0895e">®</text>
+    <text x="368" y="166" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="46" fill="#f0895e" letter-spacing="2">travel</text>
+  </svg>
+  <div class="eyebrow">Publishing Since 2006</div>
+  <h1>The Sole Sponsor Auction</h1>
+  <p class="sub">One brand. Our entire audience. Thirty days. Full category exclusivity across the household travel decision-maker's most trusted publisher.</p>
+</header>
+
+<section class="intro-section">
+  <h2 class="section-title">A Rare Opportunity, Direct From the Publisher</h2>
+  <p class="section-lede">Once a month, one brand owns She Buys Travel entirely — every banner, every email, every impression. Here's a quick word from Kim on why this month matters and how the auction works.</p>
+  <div class="kim-card">
+    <div class="kim-frame">
+      <video
+        controls
+        preload="metadata"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0f1830;">
+        <source src="kim-message.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="kim-meta">
+      <div class="name">A Message From Kim</div>
+      <div class="title">Publisher, She Buys Travel</div>
+      <div class="title" style="margin-top:6px;font-style:italic;">Placeholder script — final video to come from Kim</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+</section>
+
+<p style="text-align:center;margin:44px 24px 0;font-style:italic;color:var(--navy);font-size:1.1rem;">Travel is how you reach her. It is not the limit of what she buys.</p>
+
+<section>
+  <h2 class="section-title">One Brand. One Month. One Audience.</h2>
+  <p class="section-lede">She Buys Travel reaches the woman who treats travel as the point, not the reward. She plans the trips, books the rooms, and makes the household's travel calls. She values experiences, family, and time over status goods — and spends accordingly on flights, stays, and gear. For one month, that audience is yours alone.</p>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="num">12,000</div>
+      <div class="lbl">Confirmed Double Opt-In Subscribers</div>
+    </div>
+    <div class="stat">
+      <div class="num">160,000+</div>
+      <div class="lbl">Monthly Pageviews</div>
+    </div>
+    <div class="stat">
+      <div class="num">4–5</div>
+      <div class="lbl">Native Email Sends / Month</div>
+    </div>
+    <div class="stat">
+      <div class="num">Mobile-First</div>
+      <div class="lbl">US Travel-Intent Audience</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <h2 class="section-title">What the Sponsor Owns</h2>
+  <p class="section-lede">Every touchpoint on the site, for the full month — no shared inventory, no cluttered stack.</p>
+  <div class="owns-grid">
+    <div class="owns-card">
+      <h3>Immersive Site Entry</h3>
+      <p>Full-screen video on desktop, high-impact takeover on mobile, shown strategically to keep our brand and yours in a positive, memorable light.</p>
+    </div>
+    <div class="owns-card">
+      <h3>100% Share of Voice — Intentionally Reduced Ad Density</h3>
+      <p>Every banner position site-wide, with ad density deliberately reduced. One brand in clean space, never a cluttered stack.</p>
+    </div>
+    <div class="owns-card">
+      <h3>Sole-Sponsor Designation</h3>
+      <p>A tasteful line on every page names you as the month's single partner — full category exclusivity and the trust of a publisher standing behind you.</p>
+      <p style="margin-top:10px;font-style:italic;color:var(--coral);">"One brand. One month. This one's BMW Motorcycles."</p>
+    </div>
+    <div class="owns-card">
+      <h3>Weekly Native Email</h3>
+      <p>A custom advertorial sent each week to all 12,000 subscribers, a list with above-benchmark open rates, written in the voice they already trust. Evergreen, and yours alone.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Where She Buys Travel Sits</h2>
+  <p class="section-lede">Travel media for women is not a single audience — the category divides by life stage and motivation. Set against its closest comparables, She Buys Travel holds a distinct and commercially valuable position: the person who controls the household's travel spend.</p>
+  <div class="table-scroll">
+  <table class="comp">
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Core Audience</th>
+        <th>The Vibe &amp; Motivation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>We Are Travel Girls</td>
+        <td>Millennial women, content creators</td>
+        <td>Highly aesthetic, Instagram-driven, luxury bucket-list travel.</td>
+      </tr>
+      <tr>
+        <td>Wanderful</td>
+        <td>Solo female adventurers, expats</td>
+        <td>Empowerment, safety, community meetups, social impact.</td>
+      </tr>
+      <tr class="highlight">
+        <td>She Buys Travel</td>
+        <td>Women 30s–60s: working professionals, entrepreneurs, and corporate execs; moms, Gen X, and high-income millennials</td>
+        <td>High-intent, affluent household decision-makers who value real-world execution, comfort, and multi-generational memories.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="alt">
+  <h2 class="section-title">What Makes This Space Unique</h2>
+  <div class="points">
+    <div class="point">
+      <div class="idx">01</div>
+      <h3>She Controls the Household Spend</h3>
+      <p>She is not booking a single seat for herself. She plans, prioritizes, and purchases for everyone — the family vacation, the multi-generational trip, the girlfriend getaway, the romantic trip with her partner. The same judgment that books the trip chooses the card that pays for it, the car in the driveway, and the gift under the tree. One decision-maker, many purchases.</p>
+    </div>
+    <div class="point">
+      <div class="idx">02</div>
+      <h3>Real Life Over the Grid</h3>
+      <p>This audience has matured past travel-for-Instagram. They want frictionless joy and ground-verified advice: Is the resort good for kids? Is the pool worth it? Is the premium price justified? Trust drives the purchase.</p>
+    </div>
+    <div class="point">
+      <div class="idx">03</div>
+      <h3>Peak Earning, Real Discretionary Income</h3>
+      <p>Women in this bracket are in their highest-earning years or enjoying empty-nester freedom. They invest in comfort, mid-to-high-tier hospitality, and premium gear, and will pay for quality and convenience.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">The Auction</h2>
+  <p class="section-lede">Five months, five sponsors. September opens on the year's strongest traffic; January closes on peak travel-booking season.</p>
+  <div class="auction-grid">
+    <dl class="terms">
+      <dt>Format</dt>
+      <dd>Sealed-bid, second-price. The winner pays the runner-up's price, similar to Google and Meta, and rewards honest bidding.</dd>
+      <dt>Eligibility</dt>
+      <dd>Direct brands and approved agency partners.</dd>
+      <dt>Cadence</dt>
+      <dd>One winner per month, September through January.</dd>
+      <dt>Reserve Bid</dt>
+      <dd>$4,500 / month.</dd>
+      <dt>Buyer's Premium</dt>
+      <dd>25% on the winning bid.</dd>
+      <dt>Multi-Month</dt>
+      <dd>9% off for two or more months.</dd>
+    </dl>
+    <div>
+      <div class="timeline">
+        <div class="slot"><div class="dot"></div><div class="m">Sep</div><div class="y">2026</div></div>
+        <div class="slot"><div class="dot"></div><div class="m">Oct</div><div class="y">2026</div></div>
+        <div class="slot"><div class="dot"></div><div class="m">Nov</div><div class="y">2026</div></div>
+        <div class="slot"><div class="dot"></div><div class="m">Dec</div><div class="y">2026</div></div>
+        <div class="slot"><div class="dot"></div><div class="m">Jan</div><div class="y">2027</div></div>
+      </div>
+      <p class="timeline-caption">Availability — one sponsor per month.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-wrap" style="margin:44px 24px 0;">
+  <a href="request.html" class="cta-btn">Bid or Inquire</a>
+</div>
+
+<section class="video-section">
+  <h2 class="section-title" style="text-align:center;">And Now For Some Sizzle</h2>
+  <p class="section-lede" style="text-align:center;margin-left:auto;margin-right:auto;">Stats, facts, and clips — including our regular media appearances. Thanks, KTLA!</p>
+  <div class="video-frame">
+    <video
+      controls
+      preload="metadata"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0f1830;">
+      <source src="testsizzle.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <p class="video-caption">Full stats, the sizzle reel, and bidding instructions available at sbttakeover.com</p>
+  <div class="cta-wrap">
+    <a href="request.html" class="cta-btn">Bid or Inquire</a>
+  </div>
+</section>
+
+
+
+</body>
+</html>
