@@ -73,19 +73,90 @@
     font-family: 'Playfair Display', serif;
   }
   form { padding: 32px; }
-  .row { display: flex; gap: 16px; margin-bottom: 18px; }
-  .field { flex: 1; margin-bottom: 18px; }
-  .row .field { margin-bottom: 0; }
-  label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 6px;
+
+  /* Mad Libs narrative */
+  .madlib {
+    font-size: 19px;
+    line-height: 2.4;
+    color: var(--ink);
+    margin: 0 0 8px;
+    font-weight: 400;
   }
-  input, select, textarea {
+  .madlib.tight { line-height: 2.2; }
+  .blank {
+    border: none;
+    border-bottom: 1.5px solid var(--brass);
+    background: transparent;
+    border-radius: 0;
+    padding: 1px 6px 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--rust);
+    display: inline-block;
+    width: auto;
+  }
+  .blank::placeholder { color: var(--brass); opacity: 0.55; font-weight: 400; }
+  .blank:focus { outline: none; border-bottom-color: var(--ink); }
+  .blank.name { width: 150px; }
+  .blank.company { width: 180px; }
+  .blank.email { width: 230px; }
+  .blank.amount { width: 120px; }
+  .blank.avail { width: 210px; }
+  select.blank {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    padding-right: 20px;
+    background-image: linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%);
+    background-position: right 6px top 55%, right 1px top 55%;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+  }
+  .amount-wrap { display: inline-block; }
+  .amount-wrap .dollar { color: var(--rust); font-weight: 500; font-size: 18px; }
+
+  /* Fork */
+  .fork-label {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 22px 0 10px;
+  }
+  .fork { display: flex; gap: 12px; }
+  .path-btn {
+    flex: 1;
+    text-align: left;
+    background: #FBF7EE;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    width: auto;
+    margin: 0;
+    color: var(--charcoal);
+  }
+  .path-btn:hover { border-color: var(--brass); background: #FBF7EE; }
+  .path-btn.active { border-color: var(--ink); background: #fff; box-shadow: inset 0 0 0 1px var(--ink); }
+  .path-btn .pb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .path-btn .pb-sub { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* Path sections */
+  .path-section { display: none; margin-top: 24px; }
+  .path-section.show { display: block; }
+  .tail-common { display: none; margin-top: 20px; }
+  .tail-common.show { display: block; }
+
+  textarea {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--line);
@@ -94,42 +165,32 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: var(--charcoal);
+    resize: vertical;
+    min-height: 70px;
+    margin-top: 4px;
   }
-  input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--ink);
-  }
-  textarea { resize: vertical; min-height: 70px; }
-  .hint {
-    font-size: 12px;
-    color: var(--brass);
-    margin-top: 6px;
-    display: none;
-  }
-  .hint.show { display: block; }
-  .perforation {
-    position: relative;
-    border-top: 2px dashed var(--line);
-    margin: 8px 0 0;
-  }
-  .stub {
-    padding: 20px 32px 28px;
-    background: #FBF7EE;
-  }
-  .stub-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  textarea:focus { outline: none; border-color: var(--ink); }
+
+  .referred {
+    font-size: 15px;
     color: var(--muted);
-    font-weight: 600;
-    margin-bottom: 10px;
+    line-height: 2.2;
   }
-  .stub-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 20px;
+  .referred .blank { font-size: 15px; width: 160px; color: var(--ink); }
+
+  .note {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 10px 0 0;
+    padding-left: 12px;
+    border-left: 2px solid var(--line);
   }
-  button {
+
+  .hint { font-size: 12px; color: var(--brass); margin: 4px 0 0; display: none; }
+  .hint.show { display: block; }
+
+  button.submit {
     width: 100%;
     background: var(--ink);
     color: var(--ivory);
@@ -140,28 +201,25 @@
     letter-spacing: 0.02em;
     border-radius: 3px;
     cursor: pointer;
-    margin-top: 6px;
+    margin-top: 16px;
   }
-  button:hover { background: #16302D; }
-  .footer-note {
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    padding: 18px 32px 28px;
-  }
+  button.submit:hover { background: #16302D; }
+
+  .perforation { position: relative; border-top: 2px dashed var(--line); margin: 8px 0 0; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--muted); padding: 18px 32px 28px; }
   .footer-note a { color: var(--ink); font-weight: 600; text-decoration: none; }
-  .confirm {
-    display: none;
-    padding: 40px 32px;
-    text-align: center;
-  }
+  .site-logo { text-align: center; padding: 24px 32px 2px; }
+  .site-logo img { width: 180px; max-width: 55%; height: auto; opacity: 0.92; }
+
+  .confirm { display: none; padding: 40px 32px; text-align: center; }
   .confirm.show { display: block; }
-  .confirm h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    margin: 0 0 8px;
-  }
+  .confirm h2 { font-family: 'Playfair Display', serif; font-size: 20px; margin: 0 0 8px; }
   .confirm p { color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 520px) {
+    .madlib { font-size: 17px; line-height: 2.6; }
+    .fork { flex-direction: column; }
+  }
 </style>
 </head>
 <body>
@@ -171,7 +229,7 @@
   <div class="ticket-header">
     <div>
       <p class="eyebrow">Sole sponsor takeover</p>
-      <h1>Request the<br>media kit</h1>
+      <h1>Count me in.</h1>
     </div>
     <div class="route">
       <strong>She Buys Travel</strong>
@@ -181,61 +239,95 @@
   </div>
 
   <form id="sponsorForm">
-    <div class="row">
-      <div class="field">
-        <label for="name">Full name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" required>
-      </div>
+
+    <p class="madlib">
+      Hi, my name is
+      <input class="blank name" type="text" id="name" name="name" placeholder="your name" required>
+      and I work at
+      <input class="blank company" type="text" id="company" name="company" placeholder="company" required>.
+      My business email is
+      <input class="blank email" type="email" id="email" name="email" placeholder="name@company.com" required>,
+      and I'm reaching out as
+      <select class="blank role" id="role" name="role" required>
+        <option value="" disabled selected>&hellip;</option>
+        <option value="brand">a Brand Advertiser/Partner</option>
+        <option value="agency">an Ad Agency</option>
+        <option value="media">Media</option>
+        <option value="other">Other</option>
+      </select>.
+    </p>
+    <p class="hint" id="emailHint">Looks like a personal address &mdash; a work email helps us route you faster, but no worries either way.</p>
+
+    <p class="fork-label">And I'm here to&hellip;</p>
+    <div class="fork">
+      <button type="button" class="path-btn" data-path="inquiry">
+        <span class="pb-title">Learn more first</span>
+        <span class="pb-sub">Send me the media kit and the details.</span>
+      </button>
+      <button type="button" class="path-btn" data-path="bid">
+        <span class="pb-title">Claim a month</span>
+        <span class="pb-sub">I know what I want &mdash; let's talk terms.</span>
+      </button>
     </div>
 
-    <div class="field" style="margin-bottom: 18px;">
-      <label for="email">Work email</label>
-      <input type="email" id="email" name="email" required placeholder="name@company.com">
-      <p class="hint" id="emailHint">Looks like a personal email address. That's fine, just let us know your company above so we can route this correctly.</p>
+    <!-- INQUIRY PATH -->
+    <div class="path-section" id="pathInquiry">
+      <p class="madlib tight">
+        I'd love to book a 20&ndash;30 minute call to learn more. I'm generally free
+        <input class="blank avail" type="text" id="availability" name="availability" placeholder="e.g. weekday mornings ET" disabled>,
+        and the month I'm eyeing is
+        <select class="blank month" id="monthInquiry" name="month" disabled>
+          <option value="" selected>a month</option>
+          <option value="september">September (founding sponsor)</option>
+          <option value="october">October</option>
+          <option value="november">November</option>
+          <option value="december">December</option>
+          <option value="january">January</option>
+          <option value="unsure">not sure yet</option>
+        </select>.
+      </p>
+      <textarea id="messageInquiry" name="message" placeholder="Anything else we should know (optional)..." disabled></textarea>
     </div>
 
-    <div class="row">
-      <div class="field">
-        <label for="role">You're reaching out as</label>
-        <select id="role" name="role" required>
-          <option value="" disabled selected>Select one</option>
-          <option value="brand">Brand-side marketer</option>
-          <option value="agency">Agency (media/planning)</option>
-          <option value="other">Other</option>
+    <!-- BID PATH -->
+    <div class="path-section" id="pathBid">
+      <p class="madlib tight">
+        I want the
+        <select class="blank month" id="monthBid" name="month" disabled>
+          <option value="" selected>which month</option>
+          <option value="september">September (founding sponsor)</option>
+          <option value="october">October</option>
+          <option value="november">November</option>
+          <option value="december">December</option>
+          <option value="january">January</option>
         </select>
-      </div>
-      <div class="field">
-        <label for="month">Month of interest</label>
-        <select id="month" name="month" required>
-          <option value="" disabled selected>Select a month</option>
-          <option value="september">September 2026 (founding sponsor)</option>
-          <option value="october">October 2026</option>
-          <option value="november">November 2026</option>
-          <option value="december">December 2026</option>
-          <option value="january">January 2027</option>
-          <option value="unsure">Not sure yet</option>
-        </select>
-      </div>
+        takeover, and I'd like to put down
+        <span class="amount-wrap"><span class="dollar">$</span><input class="blank amount" type="text" inputmode="numeric" id="offerAmount" name="offer_amount" placeholder="0,000" disabled></span>.
+      </p>
+      <p class="note">While your bid is not binding, bid what you feel this audience and this package are truly worth. Once you submit, we'll send you the full package, dates, and terms as a memorandum of agreement for your review and confirmation.</p>
     </div>
 
-    <div class="field">
-      <label for="message">Anything we should know</label>
-      <textarea id="message" name="message" placeholder="Budget range, timing, questions about the package..."></textarea>
+    <!-- SHARED TAIL -->
+    <div class="tail-common" id="tailCommon">
+      <p class="referred">
+        P.S. I was referred by
+        <input class="blank" type="text" id="referredBy" name="referredBy" placeholder="optional">.
+      </p>
+      <input type="hidden" id="intent" name="intent" value="">
+      <button type="submit" class="submit" id="submitBtn">Submit</button>
     </div>
 
-    <button type="submit">Submit interest</button>
   </form>
 
   <div class="confirm" id="confirmMsg">
-    <h2>Request received</h2>
-    <p>We'll follow up within one business day with the full media kit and current auction status.</p>
+    <h2 id="confirmTitle">Request received</h2>
+    <p id="confirmBody">We'll follow up within one business day with the full media kit and everything you need to hold a month.</p>
   </div>
 
   <div class="perforation"></div>
+  <div class="site-logo">
+    <img src="SheBuys-Travel_TM-1024x290.png" alt="She Buys Travel">
+  </div>
   <p class="footer-note">Prefer email? Reach us directly at <a href="mailto:K.Orlando@shebuystravel.com">K.Orlando@shebuystravel.com</a></p>
 
 </div>
@@ -247,18 +339,50 @@
 
   emailInput.addEventListener('blur', function() {
     const domain = emailInput.value.split('@')[1] ? emailInput.value.split('@')[1].toLowerCase() : '';
-    if (freeDomains.includes(domain)) {
-      emailHint.classList.add('show');
-    } else {
-      emailHint.classList.remove('show');
-    }
+    if (freeDomains.includes(domain)) emailHint.classList.add('show');
+    else emailHint.classList.remove('show');
   });
+
+  const pathBtns = document.querySelectorAll('.path-btn');
+  const pathInquiry = document.getElementById('pathInquiry');
+  const pathBid = document.getElementById('pathBid');
+  const tailCommon = document.getElementById('tailCommon');
+  const intentField = document.getElementById('intent');
+  const submitBtn = document.getElementById('submitBtn');
+
+  const inquiryFields = ['monthInquiry','messageInquiry','availability'];
+  const bidFields = ['monthBid','offerAmount'];
+
+  function setDisabled(ids, state) {
+    ids.forEach(id => document.getElementById(id).disabled = state);
+  }
+
+  function choosePath(path) {
+    pathBtns.forEach(b => b.classList.toggle('active', b.dataset.path === path));
+    if (path === 'inquiry') {
+      pathInquiry.classList.add('show');
+      pathBid.classList.remove('show');
+      setDisabled(inquiryFields, false);
+      setDisabled(bidFields, true);
+      submitBtn.textContent = 'Request my call';
+    } else {
+      pathBid.classList.add('show');
+      pathInquiry.classList.remove('show');
+      setDisabled(bidFields, false);
+      setDisabled(inquiryFields, true);
+      submitBtn.textContent = 'Submit my interest';
+    }
+    intentField.value = path;
+    tailCommon.classList.add('show');
+  }
+
+  pathBtns.forEach(b => b.addEventListener('click', () => choosePath(b.dataset.path)));
 
   document.getElementById('sponsorForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    if (!intentField.value) { alert('Pick "Learn more first" or "Claim a month" to continue.'); return; }
 
     // Replace this fetch target with your real Formspree (or equivalent) endpoint.
-    // Sign up at https://formspree.io, create a form, and paste the endpoint URL below.
     const ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
 
     const data = new FormData(e.target);
@@ -269,7 +393,15 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       document.getElementById('sponsorForm').style.display = 'none';
-      document.getElementById('confirmMsg').classList.add('show');
+      const confirm = document.getElementById('confirmMsg');
+      if (intentField.value === 'bid') {
+        document.getElementById('confirmTitle').textContent = 'Got it — we\'re on it';
+        document.getElementById('confirmBody').textContent = 'We\'ll follow up within one business day to confirm your month and walk you through the terms.';
+      } else {
+        document.getElementById('confirmTitle').textContent = 'Request received';
+        document.getElementById('confirmBody').textContent = 'We\'ll reach out within one business day to lock a time, and we\'ll bring the full media kit to the call.';
+      }
+      confirm.classList.add('show');
     }).catch(error => {
       alert('Something went wrong submitting the form. Please email K.Orlando@shebuystravel.com directly.');
     });
