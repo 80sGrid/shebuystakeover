@@ -422,9 +422,17 @@
   /* audience proof */
   .proof-note{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.74rem;color:#9a927f;text-align:center;max-width:640px;margin:16px auto 0;font-style:italic;}
   .stat .num.placeholder{color:#c1b8a2;}
-  .stats-row.proof-stats{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));max-width:780px;}
-  .proof-chart{margin:24px auto 0;max-width:560px;}
-  .proof-chart img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 10px 26px rgba(27,42,74,.14);}
+  .stat .hhi-sub{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.82rem;color:#6b6656;margin-top:8px;}
+  .stat .hhi-sub strong{color:var(--coral);}
+  /* trust band */
+  section.trust{background:var(--navy);}
+  section.trust .section-title{color:#fff;}
+  .pull-quote{max-width:820px;margin:0 auto 34px;font-family:'Georgia',serif;font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.5;color:#eef1f6;font-style:italic;text-align:center;}
+  .pull-quote cite{display:block;margin-top:18px;font-family:'Helvetica Neue',Arial,sans-serif;font-style:normal;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:#aeb8cc;}
+  .logo-wall{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px;max-width:900px;margin:0 auto;}
+  .logo-wall .tile{background:#fff;border-radius:10px;height:74px;display:flex;align-items:center;justify-content:center;padding:0 22px;box-shadow:0 6px 18px rgba(0,0,0,.18);}
+  .logo-wall .tile img{max-height:38px;width:auto;display:block;}
+  .logo-note{text-align:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.78rem;color:#8f9ab4;margin-top:22px;font-style:italic;}
 
   /* takeover showcase */
   .showcase{display:flex;gap:26px;align-items:flex-start;justify-content:center;max-width:920px;margin:8px auto 0;}
@@ -505,10 +513,6 @@
   <h1>The Sole Sponsor Takeover</h1>
   <p class="sub">Influential, authentic, and almost impossible to reach at scale.<br>
     Until now.</p>
-  <div class="cta-wrap">
-    <a href="request.html" class="cta-btn">See what's available</a>
-    <div class="cta-note">One sponsor per month, September 2026 through January 2027.</div>
-  </div>
 </header>
 
 <section class="intro-section">
@@ -556,15 +560,13 @@
       <div class="lbl">US Travel-Intent Audience</div>
     </div>
   </div>
-  <div class="stats-row proof-stats" style="margin-top:20px;">
+  <div class="stats-row" style="margin-top:20px;">
     <div class="stat"><div class="num">42%</div><div class="lbl">Email Open Rate</div></div>
     <div class="stat"><div class="num">4.2%</div><div class="lbl">Email Click Rate</div></div>
     <div class="stat"><div class="num">35–60</div><div class="lbl">Core Age Range</div></div>
+    <div class="stat"><div class="num">69%</div><div class="lbl">Audience HHI $100K+</div><div class="hhi-sub"><strong>38%</strong> at $150K+</div></div>
   </div>
-  <figure class="proof-chart">
-    <img src="hhi-distribution.jpg" alt="Estimated household income of the She Buys Travel audience: 9% under $75,000, 22% from $75,000 to $99,999, 31% from $100,000 to $149,999, and 38% at $150,000 or more" width="900" height="503" loading="lazy" decoding="async">
-  </figure>
-  <p class="proof-note">Estimated household income of the audience. Nearly seven in ten sit at $100,000 or higher, and 38% at $150,000 or higher.</p>
+  <p class="proof-note">Household income is estimated.</p>
 </section>
 
 <section class="alt">
@@ -661,6 +663,22 @@
       <p>Women in this bracket are in their highest-earning years or enjoying empty-nester freedom. They invest in comfort, mid-to-high-tier hospitality, and premium gear, and will pay for quality and convenience.</p>
     </div>
   </div>
+</section>
+
+<section class="trust">
+  <h2 class="section-title">Brands and Their Agencies Trust Us</h2>
+  <blockquote class="pull-quote">
+    "She Buys Travel has been more than just a publisher, a true win/win partnership. The content is engaging, their processes streamlined, and their media-buying expertise adds a unique capability. All of that adds up to stellar performance and happy clients."
+    <cite>Matthew Simonides &middot; Group Director, Affiliate &middot; Horizon Media</cite>
+  </blockquote>
+  <div class="logo-wall">
+    <div class="tile"><img src="logo-disney.png" alt="Disney" loading="lazy" decoding="async"></div>
+    <div class="tile"><img src="logo-marriott.png" alt="Marriott" loading="lazy" decoding="async"></div>
+    <div class="tile"><img src="logo-southwest.png" alt="Southwest" loading="lazy" decoding="async"></div>
+    <div class="tile"><img src="logo-verizon.png" alt="Verizon" loading="lazy" decoding="async"></div>
+    <div class="tile"><img src="logo-charlotte.png" alt="Charlotte Tilbury" loading="lazy" decoding="async"></div>
+  </div>
+  <p class="logo-note">A selection of brands that have run across the network.</p>
 </section>
 
 <section>
