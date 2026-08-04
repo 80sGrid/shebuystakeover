@@ -416,6 +416,9 @@
   /* audience proof */
   .proof-note{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.74rem;color:#9a927f;text-align:center;max-width:640px;margin:16px auto 0;font-style:italic;}
   .stat .num.placeholder{color:#c1b8a2;}
+  .stats-row.proof-stats{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));max-width:780px;}
+  .proof-chart{margin:24px auto 0;max-width:560px;}
+  .proof-chart img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 10px 26px rgba(27,42,74,.14);}
 
   /* takeover showcase */
   .showcase{display:flex;gap:26px;align-items:center;justify-content:center;max-width:920px;margin:8px auto 0;}
@@ -431,7 +434,7 @@
   .way-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 26px 28px;display:flex;flex-direction:column;}
   .way-card.primary{border:2px solid var(--coral);box-shadow:0 12px 28px rgba(232,100,60,.14);}
   .way-card .kicker{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;font-weight:700;color:var(--coral);}
-  .way-card.secondary .kicker{color:var(--navy);}
+  .way-card.secondary .kicker{color:var(--gold);}
   .way-card h3{font-size:1.2rem;color:var(--navy);margin:8px 0 10px;}
   .way-card p{color:#5a5648;font-size:.94rem;margin-bottom:10px;}
   .way-card .fine{font-size:.82rem;color:#8a8478;margin-top:auto;margin-bottom:0;}
@@ -539,13 +542,15 @@
       <div class="lbl">US Travel-Intent Audience</div>
     </div>
   </div>
-  <div class="stats-row" style="margin-top:20px;">
-    <div class="stat"><div class="num placeholder">XX%</div><div class="lbl">Email Open Rate (confirm)</div></div>
-    <div class="stat"><div class="num placeholder">XX%</div><div class="lbl">Email Click Rate (confirm)</div></div>
-    <div class="stat"><div class="num placeholder">$XXXk</div><div class="lbl">Median Household Income (confirm)</div></div>
-    <div class="stat"><div class="num placeholder">XX–XX</div><div class="lbl">Core Age Range (confirm)</div></div>
+  <div class="stats-row proof-stats" style="margin-top:20px;">
+    <div class="stat"><div class="num">42%</div><div class="lbl">Email Open Rate</div></div>
+    <div class="stat"><div class="num">4.2%</div><div class="lbl">Email Click Rate</div></div>
+    <div class="stat"><div class="num">35–60</div><div class="lbl">Core Age Range</div></div>
   </div>
-  <p class="proof-note">Draft placeholders. Pull the real figures from the SHE Media dashboard before this goes live. To a buyer, these four numbers are the most persuasive thing on the page.</p>
+  <figure class="proof-chart">
+    <img src="hhi-distribution.jpg" alt="Estimated household income of the She Buys Travel audience: 9% under $75,000, 22% from $75,000 to $99,999, 31% from $100,000 to $149,999, and 38% at $150,000 or more" width="900" height="503" loading="lazy" decoding="async">
+  </figure>
+  <p class="proof-note">Estimated household income of the audience. Nearly seven in ten sit at $100,000 or higher, and 38% at $150,000 or higher.</p>
 </section>
 
 <section class="alt">
@@ -638,19 +643,19 @@
 
 <section>
   <h2 class="section-title">How the Takeover Works</h2>
-  <p class="section-lede">One brand owns the month. There are two ways to claim it, and only one of them holds the month for you.</p>
+  <p class="section-lede">One brand owns the month. Claim it outright at the set price, or win it at auction. A claim closes the month the moment it is made.</p>
   <div class="ways-grid">
     <div class="way-card primary">
-      <div class="kicker">Secure the month</div>
-      <h3>Claim it outright</h3>
-      <p>Pay the set price and the month is yours today. It comes off the board immediately, with no competing offers and nothing left to wait on.</p>
+      <div class="kicker">Claim it now</div>
+      <h3>Take it outright</h3>
+      <p>Pay the set price and the month is yours today. It comes off the board immediately, with no competing bids and nothing left to wait on.</p>
       <p class="fine">The fastest path, and the only one that guarantees you the month.</p>
     </div>
     <div class="way-card secondary">
-      <div class="kicker">Enter an offer</div>
-      <h3>Start at the floor</h3>
-      <p>Put in a non-binding offer at or above the month's floor. If more than one brand wants the same month, the strongest offer takes it.</p>
-      <p class="fine">An offer does not hold the month. Another brand can secure it outright at any time before you close.</p>
+      <div class="kicker">Or win it at auction</div>
+      <h3>Bid your best</h3>
+      <p>Access like this is worth competing for, so contested months go to auction. It runs sealed and second-price, the format platforms like Google and Meta are known for: bid the most the month is worth to you, and if you win, you pay just $100 over the next-highest bid, never your full max.</p>
+      <p class="fine">So bid your true number. Example: you bid $8,000, the next bid sits at $6,000, you win the month at $6,100. Win, and you have 48 hours to sign. A claim can still take the month before the auction closes.</p>
     </div>
   </div>
 
@@ -658,38 +663,38 @@
     <div class="month">
       <div class="m">Sep</div><div class="y">2026</div>
       <div class="secure">$5,500</div>
-      <div class="floor">Offers from $4,000</div>
+      <div class="floor">Bidding from $4,000</div>
       <div class="badge founding">Founding</div>
     </div>
     <div class="month">
       <div class="m">Oct</div><div class="y">2026</div>
       <div class="secure">$6,000</div>
-      <div class="floor">Offers from $4,500</div>
+      <div class="floor">Bidding from $4,500</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Nov</div><div class="y">2026</div>
       <div class="secure">$6,750</div>
-      <div class="floor">Offers from $5,000</div>
+      <div class="floor">Bidding from $5,000</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Dec</div><div class="y">2026</div>
       <div class="secure">$6,750</div>
-      <div class="floor">Offers from $5,000</div>
+      <div class="floor">Bidding from $5,000</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Jan</div><div class="y">2027</div>
       <div class="secure">$6,750</div>
-      <div class="floor">Offers from $5,000</div>
+      <div class="floor">Bidding from $5,000</div>
       <div class="badge available">Available</div>
     </div>
   </div>
   <p class="board-note">September opens on the year's strongest traffic and carries the founding-sponsor rate. January closes on peak travel-booking season. Open to direct brands and approved agency partners. Two or more months, save 9%.</p>
 
   <div class="cta-wrap">
-    <a href="request.html" class="cta-btn">Claim a month</a>
+    <a href="request.html" class="cta-btn">Claim or bid on a month</a>
   </div>
 </section>
 
