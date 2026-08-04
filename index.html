@@ -128,12 +128,14 @@
     color:#6b6656;
     margin-top:8px;
   }
+  .seen-composite{display:none;}
+  .seen-composite img{width:100%;height:auto;display:block;}
   @media (max-width:600px){
     html{font-size:17px;}
-    .seen-on{margin-bottom:22px;}
-    .seen-grid{grid-template-columns:repeat(3,1fr);gap:8px;max-width:360px;margin:0 auto;}
-    .seen-thumb img{border-radius:6px;box-shadow:0 3px 8px rgba(27,42,74,.14);}
-    .seen-thumb .lbl{font-size:.56rem;letter-spacing:.02em;line-height:1.2;margin-top:5px;}
+    .seen-on{margin-bottom:18px;}
+    .seen-on .eyebrow{margin-bottom:12px;}
+    .seen-grid{display:none;}
+    .seen-composite{display:block;width:100%;max-width:300px;margin:0 auto;}
   }
 
   /* intro / Kim message */
@@ -499,11 +501,10 @@
     <text x="562" y="46" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="22" fill="#f0895e">®</text>
     <text x="368" y="166" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="46" fill="#f0895e" letter-spacing="2">travel</text>
   </svg>
-  <div class="eyebrow">Part of SHE Media · Publishing since 2006</div>
+  <div class="eyebrow">Publishing since 2006</div>
   <h1>The Sole Sponsor Takeover</h1>
-  <p class="sub" style="margin-bottom:6px;">She's authentic, she's influential, and she's almost impossible to reach at scale.<br>
+  <p class="sub">Influential, authentic, and almost impossible to reach at scale.<br>
     Until now.</p>
-  <p class="sub">One brand. Every page. Every email. Thirty days. Zero competitors.</p>
   <div class="cta-wrap">
     <a href="request.html" class="cta-btn">See what's available</a>
     <div class="cta-note">One sponsor per month, September 2026 through January 2027.</div>
@@ -736,6 +737,10 @@
         <div class="lbl">Good Day LA+</div>
       </div>
     </div>
+    <picture class="seen-composite">
+      <source srcset="seen-on-tv.webp" type="image/webp">
+      <img src="seen-on-tv.png" alt="Kim featured on Fox 11 Travel Tips and Good Day LA" width="300" height="250" loading="lazy" decoding="async">
+    </picture>
   </div>
 
   <h2 class="section-title" style="text-align:center;">And Now For Some Sizzle</h2>
@@ -756,7 +761,7 @@
 </section>
 
 <footer>
-  <div class="eyebrow">She Buys Travel · Part of SHE Media</div>
+  <div class="eyebrow">She Buys Travel</div>
   <h3>Own the month.</h3>
   <p>One sponsor per month, September 2026 through January 2027.</p>
   <p class="contact-line">Kim Orlando, Publisher · K.Orlando@shebuystravel.com</p>
