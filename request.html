@@ -382,8 +382,8 @@
     e.preventDefault();
     if (!intentField.value) { alert('Pick "Learn more first" or "Claim a month" to continue.'); return; }
 
-    // Replace this fetch target with your real Formspree (or equivalent) endpoint.
-    const ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID';
+    // Formspree endpoint — delivers submissions to the account's configured email.
+    const ENDPOINT = 'https://formspree.io/f/mwlevwbw';
 
     const data = new FormData(e.target);
 
