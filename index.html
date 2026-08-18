@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -295,6 +293,76 @@
   }
   .owns-card p{color:#5a5648;font-size:.94rem;}
 
+  /* what the sponsor owns — accordion */
+  .owns-accordion{
+    max-width:1040px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .acc-item{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .acc-item.open{
+    border-color:var(--coral);
+    box-shadow:0 10px 24px rgba(232,100,60,.10);
+  }
+  .acc-head{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    background:none;
+    border:0;
+    padding:20px 24px;
+    cursor:pointer;
+    text-align:left;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+  }
+  .acc-title{
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.3;
+  }
+  .acc-item.open .acc-title{color:var(--coral);}
+  .acc-icon{
+    position:relative;
+    flex:0 0 16px;
+    width:16px;
+    height:16px;
+  }
+  .acc-icon::before,.acc-icon::after{
+    content:"";
+    position:absolute;
+    background:var(--coral);
+    transition:opacity .28s ease, transform .28s ease;
+  }
+  .acc-icon::before{top:50%;left:0;width:100%;height:2px;transform:translateY(-50%);}
+  .acc-icon::after{left:50%;top:0;width:2px;height:100%;transform:translateX(-50%);}
+  .acc-item.open .acc-icon::after{opacity:0;transform:translateX(-50%) rotate(90deg);}
+  .acc-panel{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows .28s ease;
+  }
+  .acc-item.open .acc-panel{grid-template-rows:1fr;}
+  .acc-panel-inner{overflow:hidden;min-height:0;}
+  .acc-panel-body{padding:0 24px 22px;}
+  .acc-panel-body p{color:#5a5648;font-size:.94rem;}
+  .acc-panel-body p + p{margin-top:10px;}
+  .acc-panel-body .acc-quote{font-style:italic;color:var(--coral);}
+  @media (prefers-reduced-motion: reduce){
+    .acc-panel{transition:none;}
+    .acc-icon::before,.acc-icon::after{transition:none;}
+  }
+
   /* competitive table */
   .table-scroll{
     width:100%;
@@ -470,6 +538,7 @@
 
   /* two ways to claim */
   .ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1040px;margin:0 auto;}
+  .claim-explainer{max-width:640px;margin:0 auto;}
   .way-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 26px 28px;display:flex;flex-direction:column;}
   .way-card.primary{border:2px solid var(--coral);box-shadow:0 12px 28px rgba(232,100,60,.14);}
   .way-card .kicker{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;font-weight:700;color:var(--coral);}
@@ -552,10 +621,8 @@
   <div class="divider"></div>
 </section>
 
-<p style="text-align:center;margin:44px 24px 0;font-style:italic;color:var(--navy);font-size:1.1rem;">Travel is how you reach her. It is not the limit of what she buys.</p>
-
 <section>
-  <h2 class="section-title">Travel Is Where the Inspo Starts</h2>
+  <h2 class="section-title">Travel is how you reach her. It is not the limit of what she buys.</h2>
   <p class="section-lede">She is a decision-maker, not a demographic. She buys for herself and/or her family and her purchases extend well beyond the trip. A destination inspires what she packs, wears and upgrades, from luggage and apparel to technology and home products. Travel connects those decisions. For one month, your brand can own that connection.</p>
   <div class="stats-row">
     <div class="stat">
@@ -587,23 +654,59 @@
 <section class="alt">
   <h2 class="section-title">What the Sponsor Owns</h2>
   <p class="section-lede">Every touchpoint on the site, for the full month. No shared inventory, no cluttered stack.</p>
-  <div class="owns-grid">
-    <div class="owns-card">
-      <h3>Immersive Site Entry</h3>
-      <p>Full-screen video on desktop, high-impact takeover on mobile, shown strategically to keep our brand and yours in a positive, memorable light.</p>
+  <div class="owns-accordion">
+    <div class="acc-item open">
+      <button type="button" class="acc-head" aria-expanded="true" aria-controls="acc-p1">
+        <span class="acc-title">Immersive Site Entry</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-p1">
+        <div class="acc-panel-inner">
+          <div class="acc-panel-body">
+            <p>Full-screen video on desktop, high-impact takeover on mobile, shown strategically to keep our brand and yours in a positive, memorable light.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="owns-card">
-      <h3>100% Share of Voice</h3>
-      <p>Every banner position site-wide belongs to you, with overall ad density deliberately reduced so your message runs in clean, uncrowded space.</p>
+    <div class="acc-item">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc-p2">
+        <span class="acc-title">100% Share of Voice</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-p2">
+        <div class="acc-panel-inner">
+          <div class="acc-panel-body">
+            <p>Every banner position site-wide belongs to you, with overall ad density deliberately reduced so your message runs in clean, uncrowded space.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="owns-card">
-      <h3>Sole-Sponsor Designation</h3>
-      <p>A tasteful line on every page names you as the month's single partner, with full category exclusivity and the trust of a publisher standing behind you.</p>
-      <p style="margin-top:10px;font-style:italic;color:var(--coral);">"One brand. One month. This one's yours."</p>
+    <div class="acc-item">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc-p3">
+        <span class="acc-title">Sole-Sponsor Designation</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-p3">
+        <div class="acc-panel-inner">
+          <div class="acc-panel-body">
+            <p>A tasteful line on every page names you as the month's single partner, with full category exclusivity and the trust of a publisher standing behind you.</p>
+            <p class="acc-quote">"One brand. One month. This one's yours."</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="owns-card">
-      <h3>Exclusive Newsletter Placement</h3>
-      <p>Exclusive placement in five weekly newsletters — four lines of text plus a hero image — reaching all 15,000 subscribers on a list with above-benchmark open rates. Yours alone for the month.</p>
+    <div class="acc-item">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc-p4">
+        <span class="acc-title">Exclusive Newsletter Placement</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-p4">
+        <div class="acc-panel-inner">
+          <div class="acc-panel-body">
+            <p>Exclusive placement in five weekly newsletters — four lines of text plus a hero image — reaching all 15,000 subscribers on a list with above-benchmark open rates. Yours alone for the month.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -696,66 +799,8 @@
   <p class="logo-note">A selection of brands that have run across the network.</p>
 </section>
 
-<section>
-  <h2 class="section-title">How the Takeover Works</h2>
-  <p class="section-lede">One brand owns the month. Claim it outright at the set price, or win it at auction. A claim closes the month the moment it is made.</p>
-  <div class="ways-grid">
-    <div class="way-card primary">
-      <div class="kicker">Claim it now</div>
-      <h3>Take it outright</h3>
-      <p>Pay the set price and the month is yours today. It comes off the board immediately, with no competing bids and nothing left to wait on.</p>
-      <p class="fine">The fastest path, and the only one that guarantees you the month.</p>
-    </div>
-    <div class="way-card secondary">
-      <div class="kicker">Or win it at auction</div>
-      <h3>Bid your best</h3>
-      <p>If a month isn't taken at the set price, it goes to auction — the same way most media is bought today. It's a second-price format like the ones Google and Meta are known for: bid what the month is worth to you, and if you win, you pay just $100 over the next-highest bid, never your full max.</p>
-      <p class="fine">So bid your true number. Example: you bid $8,000, the next bid sits at $6,000, you win the month at $6,100. Win, and you have 48 hours to sign. Note: someone can still claim the month outright before the auction ends.</p>
-    </div>
-  </div>
-
-  <div class="board">
-    <div class="month">
-      <div class="m">Sep</div><div class="y">2026</div>
-      <div class="secure">$5,500</div>
-      <div class="floor">Bidding from $4,000</div>
-      <div class="badge founding">Founding</div>
-    </div>
-    <div class="month">
-      <div class="m">Oct</div><div class="y">2026</div>
-      <div class="secure">$6,000</div>
-      <div class="floor">Bidding from $4,500</div>
-      <div class="badge available">Available</div>
-    </div>
-    <div class="month">
-      <div class="m">Nov</div><div class="y">2026</div>
-      <div class="secure">$6,750</div>
-      <div class="floor">Bidding from $5,000</div>
-      <div class="badge available">Available</div>
-    </div>
-    <div class="month">
-      <div class="m">Dec</div><div class="y">2026</div>
-      <div class="secure">$6,750</div>
-      <div class="floor">Bidding from $5,000</div>
-      <div class="badge available">Available</div>
-    </div>
-    <div class="month">
-      <div class="m">Jan</div><div class="y">2027</div>
-      <div class="secure">$6,750</div>
-      <div class="floor">Bidding from $5,000</div>
-      <div class="badge available">Available</div>
-    </div>
-  </div>
-  <p class="board-note">September opens on the year's strongest traffic and carries the founding-sponsor rate. January closes on peak travel-booking season. Open to direct brands and approved agency partners. Two or more months, save 9%.</p>
-
-  <div class="cta-wrap">
-    <a href="request.html" class="cta-btn">Claim or bid on a month</a>
-  </div>
-</section>
-
 <section class="video-section">
   <h2 class="section-title" style="text-align:center;">And Now For Some Sizzle</h2>
-  <p class="section-lede" style="text-align:center;margin-left:auto;margin-right:auto;">Stats, facts, and clips. The full sizzle reel is right below.</p>
   <div class="video-frame">
     <video
       controls
@@ -765,9 +810,52 @@
       Your browser does not support the video tag.
     </video>
   </div>
-  <p class="video-caption">Like what you see? Claim or bid on a month below.</p>
+  <p class="video-caption">Like what you see? Claim your month below.</p>
+</section>
+
+<section>
+  <h2 class="section-title">How the Takeover Works</h2>
+  <p class="section-lede">One brand owns the month. Every banner, every newsletter, every impression across the site. Five months, five sponsors. Claim yours at the set price and it comes off the board that day.</p>
+  <div class="claim-explainer">
+    <div class="way-card primary">
+      <div class="kicker">Claim it now</div>
+      <h3>Set price. Whole month. Yours.</h3>
+      <p>Choose your month and claim it at the set price. It comes off the board that day, with full category exclusivity and no shared inventory. One brand, one month, the entire site.</p>
+      <p class="fine">First to claim holds the month. When it is gone, it is gone.</p>
+    </div>
+  </div>
+
+  <div class="board">
+    <div class="month">
+      <div class="m">Sep</div><div class="y">2026</div>
+      <div class="secure">$3,500</div>
+      <div class="badge founding">Founding</div>
+    </div>
+    <div class="month">
+      <div class="m">Oct</div><div class="y">2026</div>
+      <div class="secure">$6,000</div>
+      <div class="badge available">Available</div>
+    </div>
+    <div class="month">
+      <div class="m">Nov</div><div class="y">2026</div>
+      <div class="secure">$6,750</div>
+      <div class="badge available">Available</div>
+    </div>
+    <div class="month">
+      <div class="m">Dec</div><div class="y">2026</div>
+      <div class="secure">$6,750</div>
+      <div class="badge available">Available</div>
+    </div>
+    <div class="month">
+      <div class="m">Jan</div><div class="y">2027</div>
+      <div class="secure">$6,750</div>
+      <div class="badge available">Available</div>
+    </div>
+  </div>
+  <p class="board-note">September opens on the year's strongest traffic and carries the founding-sponsor rate. January closes on peak travel-booking season. Open to direct brands and approved agency partners. Two or more months, save 9%.</p>
+
   <div class="cta-wrap">
-    <a href="request.html" class="cta-btn">Claim a month</a>
+    <a href="request.html" class="cta-btn">Claim your month</a>
   </div>
 </section>
 
@@ -796,6 +884,27 @@
   }
   lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lightbox-close'))close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+
+<script>
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.owns-accordion .acc-item'));
+  items.forEach(function(item){
+    var head = item.querySelector('.acc-head');
+    head.addEventListener('click', function(){
+      var willOpen = !item.classList.contains('open');
+      items.forEach(function(other){
+        other.classList.remove('open');
+        var h = other.querySelector('.acc-head');
+        if(h) h.setAttribute('aria-expanded','false');
+      });
+      if(willOpen){
+        item.classList.add('open');
+        head.setAttribute('aria-expanded','true');
+      }
+    });
+  });
 })();
 </script>
 
