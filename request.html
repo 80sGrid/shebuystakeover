@@ -278,7 +278,6 @@
         and the month I'm eyeing is
         <select class="blank month" id="monthInquiry" name="month" disabled>
           <option value="" selected>a month</option>
-          <option value="september">September (founding sponsor)</option>
           <option value="october">October</option>
           <option value="november">November</option>
           <option value="december">December</option>
@@ -295,7 +294,6 @@
         I want the
         <select class="blank month" id="monthBid" name="month" disabled>
           <option value="" selected>which month</option>
-          <option value="september">September (founding sponsor)</option>
           <option value="october">October</option>
           <option value="november">November</option>
           <option value="december">December</option>
@@ -380,11 +378,10 @@
 
   // Auto-fill the set price when a month is chosen on the claim path.
   const monthPrices = {
-    september: '3,500',
-    october: '6,000',
-    november: '6,750',
-    december: '6,750',
-    january: '6,750'
+    october: '5,250',
+    november: '5,750',
+    december: '6,250',
+    january: '5,750'
   };
   const monthBidSelect = document.getElementById('monthBid');
   const offerAmountInput = document.getElementById('offerAmount');
