@@ -301,10 +301,10 @@
           <option value="december">December</option>
           <option value="january">January</option>
         </select>
-        takeover, and I'd like to put down
-        <span class="amount-wrap"><span class="dollar">$</span><input class="blank amount" type="text" inputmode="numeric" id="offerAmount" name="offer_amount" placeholder="0,000" disabled></span>.
+        takeover, at the set price of
+        <span class="amount-wrap"><span class="dollar">$</span><input class="blank amount" type="text" id="offerAmount" name="offer_amount" placeholder="set price" readonly disabled></span>.
       </p>
-      <p class="note">While your bid is not binding, bid what you feel this audience and this package are truly worth. Once you submit, we'll send you the full package, dates, and terms as a memorandum of agreement for your review and confirmation.</p>
+      <p class="note">Choosing to claim a month at the set price is not binding. Once you submit, we'll send you the full package, dates, and terms as a memorandum of agreement for your review and confirmation. You can complete the buy through a traditional insertion order or as a programmatic guaranteed deal.</p>
     </div>
 
     <!-- SHARED TAIL -->
@@ -377,6 +377,20 @@
   }
 
   pathBtns.forEach(b => b.addEventListener('click', () => choosePath(b.dataset.path)));
+
+  // Auto-fill the set price when a month is chosen on the claim path.
+  const monthPrices = {
+    september: '3,500',
+    october: '6,000',
+    november: '6,750',
+    december: '6,750',
+    january: '6,750'
+  };
+  const monthBidSelect = document.getElementById('monthBid');
+  const offerAmountInput = document.getElementById('offerAmount');
+  monthBidSelect.addEventListener('change', function() {
+    offerAmountInput.value = monthPrices[monthBidSelect.value] || '';
+  });
 
   document.getElementById('sponsorForm').addEventListener('submit', function(e) {
     e.preventDefault();
