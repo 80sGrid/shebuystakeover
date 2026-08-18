@@ -548,12 +548,17 @@
   .way-card .fine{font-size:.82rem;color:#8a8478;margin-top:auto;margin-bottom:0;}
 
   /* month board */
-  .board{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1040px;margin:28px auto 0;}
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1040px;margin:28px auto 0;}
   .month{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 12px;text-align:center;}
   .month.sold{opacity:.55;}
   .month .m{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;color:var(--navy);font-size:1rem;}
   .month .y{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.7rem;color:#8a8478;margin-bottom:10px;}
   .month .secure{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;color:var(--coral);font-size:1.2rem;}
+  .month .deliv{list-style:none;padding:0;margin:12px 0 12px;text-align:left;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .month .deliv li{display:flex;justify-content:space-between;align-items:baseline;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;color:#5a5648;padding:6px 2px;line-height:1.25;}
+  .month .deliv li + li{border-top:1px dashed #eee6d1;}
+  .month .deliv li span{color:#8a8478;padding-right:6px;}
+  .month .deliv li b{color:var(--navy);font-weight:700;white-space:nowrap;}
   .month .floor{font-family:'Helvetica Neue',Arial,sans-serif;font-size:.72rem;color:#6b6656;margin-top:3px;}
   .month .badge{display:inline-block;margin-top:12px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:20px;}
   .badge.available{background:#e6f7f4;color:#1c8a7a;}
@@ -630,7 +635,7 @@
       <div class="lbl">Confirmed Double Opt-In Subscribers</div>
     </div>
     <div class="stat">
-      <div class="num">160,000+</div>
+      <div class="num">~75,000</div>
       <div class="lbl">Monthly Pageviews</div>
     </div>
     <div class="stat">
@@ -657,13 +662,14 @@
   <div class="owns-accordion">
     <div class="acc-item open">
       <button type="button" class="acc-head" aria-expanded="true" aria-controls="acc-p1">
-        <span class="acc-title">Immersive Site Entry</span>
+        <span class="acc-title">Custom Content Integration</span>
         <span class="acc-icon" aria-hidden="true"></span>
       </button>
       <div class="acc-panel" id="acc-p1">
         <div class="acc-panel-inner">
           <div class="acc-panel-body">
-            <p>Full-screen video on desktop, high-impact takeover on mobile, shown strategically to keep our brand and yours in a positive, memorable light.</p>
+            <p>One sponsored post on the site, four Pinterest pins, and four sponsored Facebook posts, produced with the SheBuysTravel editorial voice her audience already trusts. Content that keeps working in search and social long after your month closes.</p>
+            <p>The sponsored post stays live on the site for a minimum of six months after your flight ends, so a one-month buy earns you a half-year of shelf life.</p>
           </div>
         </div>
       </div>
@@ -827,32 +833,51 @@
 
   <div class="board">
     <div class="month">
-      <div class="m">Sep</div><div class="y">2026</div>
-      <div class="secure">$3,500</div>
-      <div class="badge founding">Founding</div>
-    </div>
-    <div class="month">
       <div class="m">Oct</div><div class="y">2026</div>
-      <div class="secure">$6,000</div>
+      <ul class="deliv">
+        <li><span>Ad impressions</span><b>~450k</b></li>
+        <li><span>Newsletters</span><b>5</b></li>
+        <li><span>Custom content</span><b>6+ months</b></li>
+        <li><span>Share of voice</span><b>100%</b></li>
+      </ul>
+      <div class="secure">$5,250</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Nov</div><div class="y">2026</div>
-      <div class="secure">$6,750</div>
+      <ul class="deliv">
+        <li><span>Ad impressions</span><b>~340k</b></li>
+        <li><span>Newsletters</span><b>5</b></li>
+        <li><span>Custom content</span><b>6+ months</b></li>
+        <li><span>Share of voice</span><b>100%</b></li>
+      </ul>
+      <div class="secure">$5,750</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Dec</div><div class="y">2026</div>
-      <div class="secure">$6,750</div>
+      <ul class="deliv">
+        <li><span>Ad impressions</span><b>~430k</b></li>
+        <li><span>Newsletters</span><b>5</b></li>
+        <li><span>Custom content</span><b>6+ months</b></li>
+        <li><span>Share of voice</span><b>100%</b></li>
+      </ul>
+      <div class="secure">$6,250</div>
       <div class="badge available">Available</div>
     </div>
     <div class="month">
       <div class="m">Jan</div><div class="y">2027</div>
-      <div class="secure">$6,750</div>
+      <ul class="deliv">
+        <li><span>Ad impressions</span><b>~545k</b></li>
+        <li><span>Newsletters</span><b>5</b></li>
+        <li><span>Custom content</span><b>6+ months</b></li>
+        <li><span>Share of voice</span><b>100%</b></li>
+      </ul>
+      <div class="secure">$5,750</div>
       <div class="badge available">Available</div>
     </div>
   </div>
-  <p class="board-note">September opens on the year's strongest traffic and carries the founding-sponsor rate. January closes on peak travel-booking season. Open to direct brands and approved agency partners. Two or more months, save 9%.</p>
+  <p class="board-note">Every month includes one sponsored post, four Pinterest pins, and four sponsored Facebook posts, plus five newsletter placements to the full subscriber list. The sponsored post stays live on the site for a minimum of six months after your flight. December is peak holiday-booking season. January closes on the year's strongest traffic. Open to direct brands and approved agency partners. Two or more months, save 9%.</p>
 
   <div class="cta-wrap">
     <a href="request.html" class="cta-btn">Claim your month</a>
@@ -862,7 +887,7 @@
 <footer>
   <div class="eyebrow">SheBuysTravel</div>
   <h3>Own the month.</h3>
-  <p>One sponsor per month, September 2026 through January 2027.</p>
+  <p>One sponsor per month, October 2026 through January 2027.</p>
   <p class="contact-line">Kim Orlando, Publisher · K.Orlando@shebuystravel.com</p>
   <div class="cta-wrap"><a href="request.html" class="cta-btn">See what's available</a></div>
 </footer>
