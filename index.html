@@ -535,6 +535,14 @@
   .lightbox img{max-width:100%;max-height:88vh;width:auto;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
   .lightbox-close{position:absolute;top:14px;right:16px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;}
   .mockup-caption{text-align:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.8rem;color:#9a927f;margin:14px auto 0;font-style:italic;max-width:640px;}
+  /* newsletter thumbnail (inside accordion) */
+  .nl-thumb{width:132px;margin:16px 0 2px;}
+  .nl-thumb .shot-btn{border:1px solid var(--line);box-shadow:0 8px 20px rgba(27,42,74,.16);border-radius:8px;}
+  .nl-thumb .shot-zoom{width:22px;height:22px;font-size:.7rem;}
+  .nl-thumb .shot-cap{text-align:left;margin-top:7px;white-space:nowrap;}
+  /* shelf-life callout pill */
+  .shelf-pill{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:#fdf1ea;border:1px solid #f4c9b4;color:var(--coral);font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.01em;padding:9px 15px;border-radius:24px;}
+  .shelf-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--coral);flex:0 0 8px;}
 
   /* two ways to claim */
   .ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1040px;margin:0 auto;}
@@ -671,6 +679,7 @@
           <div class="acc-panel-body">
             <p>One sponsored post on the site, four Pinterest pins, and four sponsored Facebook posts, produced with the SheBuysTravel editorial voice her audience already trusts. Content that keeps working in search and social long after your month closes.</p>
             <p>The sponsored post stays live on the site for a minimum of six months after your flight ends, so a one-month buy earns you a half-year of shelf life.</p>
+            <span class="shelf-pill"><span class="dot" aria-hidden="true"></span>Lives on-site 6+ months after your month ends</span>
           </div>
         </div>
       </div>
@@ -698,6 +707,13 @@
         <div class="acc-panel-inner">
           <div class="acc-panel-body">
             <p>Hero placement in four weekly newsletters — four lines of text plus a lead image — reaching all 15,000 subscribers on a list with above-benchmark open rates. No competing brand appears in any send that month.</p>
+            <figure class="nl-thumb">
+              <button type="button" class="shot-btn" data-lightbox="newsletter-mockup.jpg" data-alt="Example SheBuysTravel weekly newsletter with a single sponsor headlining the hero placement" aria-label="Enlarge the full newsletter example">
+                <img src="newsletter-tile.jpg" alt="Example SheBuysTravel weekly newsletter with a single sponsor headlining the hero placement" width="300" height="600" loading="lazy" decoding="async">
+                <span class="shot-zoom" aria-hidden="true">&#10530;</span>
+              </button>
+              <figcaption class="shot-cap">Newsletter example &middot; tap to enlarge</figcaption>
+            </figure>
           </div>
         </div>
       </div>
