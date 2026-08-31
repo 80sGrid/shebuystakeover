@@ -302,7 +302,7 @@
         takeover, at the set price of
         <span class="amount-wrap"><span class="dollar">$</span><input class="blank amount" type="text" id="offerAmount" name="offer_amount" placeholder="set price" readonly disabled></span>.
       </p>
-      <p class="note">Choosing to claim a month at the set price is not binding. Once you submit, we'll send you the full package, dates, and terms as a memorandum of agreement for your review and confirmation. You can complete the buy through a traditional insertion order or as a programmatic guaranteed deal.</p>
+      <p class="note">Claiming a month is not binding. Within one business day we'll send you a letter of intent with your month, package, dates, and price to review and sign. You complete the buy through a standard insertion order or a programmatic guaranteed deal.</p>
     </div>
 
     <!-- SHARED TAIL -->
@@ -378,10 +378,10 @@
 
   // Auto-fill the set price when a month is chosen on the claim path.
   const monthPrices = {
-    october: '5,250',
-    november: '5,750',
-    december: '6,250',
-    january: '5,750'
+    october: '9,300',
+    november: '9,350',
+    december: '10,800',
+    january: '10,510'
   };
   const monthBidSelect = document.getElementById('monthBid');
   const offerAmountInput = document.getElementById('offerAmount');
@@ -407,7 +407,7 @@
       const confirm = document.getElementById('confirmMsg');
       if (intentField.value === 'bid') {
         document.getElementById('confirmTitle').textContent = 'Got it, we\'re on it';
-        document.getElementById('confirmBody').textContent = 'We\'ll follow up within one business day to confirm your month and walk you through the terms.';
+        document.getElementById('confirmBody').textContent = 'We\'ll follow up within one business day with your letter of intent to review and sign, and we\'ll walk you through the terms.';
       } else {
         document.getElementById('confirmTitle').textContent = 'Request received';
         document.getElementById('confirmBody').textContent = 'We\'ll reach out within one business day to lock a time, and we\'ll bring the full media kit to the call.';
