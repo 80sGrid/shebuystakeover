@@ -145,7 +145,7 @@
   .seen-composite{display:none;}
   .seen-composite img{width:100%;height:auto;display:block;}
   @media (max-width:600px){
-    html{font-size:18px;}
+    html{font-size:19px;}
     .seen-on{margin-bottom:18px;}
     .seen-on .eyebrow{margin-bottom:12px;}
     .seen-grid{display:none;}
@@ -617,8 +617,9 @@
   /* Kim video play button overlay */
   .kim-play{
     position:absolute;
-    inset:0;
-    margin:auto;
+    left:50%;
+    top:73%;
+    transform:translate(-50%,-50%);
     width:72px;
     height:72px;
     border:0;
@@ -633,9 +634,10 @@
     transition:transform .15s ease, box-shadow .15s ease;
     -webkit-tap-highlight-color:transparent;
   }
-  .kim-play:hover{transform:scale(1.06);box-shadow:0 14px 30px rgba(0,0,0,.44);}
+  .kim-play:hover{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 14px 30px rgba(0,0,0,.44);}
   .kim-play svg{width:32px;height:32px;fill:#fff;margin-left:4px;}
   .kim-play.hidden{display:none;}
+  .acc-panel-body .mockup-caption{color:#9a927f;font-size:.8rem;}
 </style>
 </head>
 <body>
@@ -787,7 +789,15 @@
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="acc-item">
+      <button type="button" class="acc-head" aria-expanded="false" aria-controls="acc-p5">
+        <span class="acc-title">Preview the Takeover</span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </button>
+      <div class="acc-panel" id="acc-p5">
+        <div class="acc-panel-inner">
+          <div class="acc-panel-body">
 
   <div class="showcase">
     <figure class="shot desktop-shot">
@@ -806,6 +816,11 @@
     </figure>
   </div>
   <p class="mockup-caption">One brand across the full page, on desktop and in her hand, where most of this audience reads. Aurora Sky is a fictional brand shown for illustration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="trust">
