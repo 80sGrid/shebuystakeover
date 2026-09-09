@@ -618,10 +618,10 @@
   .kim-play{
     position:absolute;
     left:50%;
-    top:73%;
+    top:80%;
     transform:translate(-50%,-50%);
-    width:72px;
-    height:72px;
+    width:60px;
+    height:60px;
     border:0;
     border-radius:50%;
     background:var(--coral);
@@ -675,7 +675,6 @@
     <div class="kim-frame">
       <video
         id="kimVideo"
-        controls
         preload="none"
         poster="kim-poster.jpg"
         playsinline
@@ -1009,9 +1008,9 @@
   var v=document.getElementById('kimVideo');
   var btn=document.getElementById('kimPlay');
   if(!v||!btn)return;
-  btn.addEventListener('click',function(){ btn.classList.add('hidden'); v.play(); });
+  btn.addEventListener('click',function(){ btn.classList.add('hidden'); v.setAttribute('controls',''); v.play(); });
   v.addEventListener('play',function(){ btn.classList.add('hidden'); });
-  v.addEventListener('ended',function(){ btn.classList.remove('hidden'); });
+  v.addEventListener('ended',function(){ v.removeAttribute('controls'); btn.classList.remove('hidden'); });
 })();
 </script>
 
