@@ -614,6 +614,47 @@
       box-shadow:0 8px 20px rgba(232,100,60,.34);
     }
   }
+  /* sticky desktop pricing bar (hidden on phones, mobile-claim-bar covers that) */
+  .desktop-claim-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:900;
+    background:var(--coral);
+    padding:12px 20px;
+    box-shadow:0 -6px 18px rgba(0,0,0,.18);
+    transform:translateY(100%);
+    transition:transform .25s ease;
+  }
+  .desktop-claim-bar.visible{transform:translateY(0);}
+  .desktop-claim-bar span{
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-size:.88rem;
+    color:#fff;
+    font-weight:600;
+  }
+  .desktop-claim-bar a{
+    display:inline-block;
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    font-weight:700;
+    font-size:.82rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    color:#fff;
+    background:var(--navy);
+    padding:9px 20px;
+    border-radius:6px;
+    white-space:nowrap;
+  }
+  @media (max-width:600px){
+    .desktop-claim-bar{display:none;}
+  }
+  html{scroll-behavior:smooth;}
   /* Kim video play button overlay */
   .kim-play{
     position:absolute;
@@ -882,7 +923,7 @@
   </div>
 </section>
 
-<section>
+<section id="pricing">
   <h2 class="section-title" style="margin-bottom:28px;">How the Takeover Works</h2>
   <div class="claim-explainer">
     <div class="way-card primary">
@@ -963,6 +1004,11 @@
 
 <div class="mobile-claim-bar"><a href="request.html">Claim your month</a></div>
 
+<div class="desktop-claim-bar" id="desktopClaimBar">
+  <span>Ready to claim a month?</span>
+  <a href="#pricing">See pricing &amp; packages</a>
+</div>
+
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
   <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
   <img alt="">
@@ -1011,6 +1057,21 @@
   btn.addEventListener('click',function(){ btn.classList.add('hidden'); v.setAttribute('controls',''); v.play(); });
   v.addEventListener('play',function(){ btn.classList.add('hidden'); });
   v.addEventListener('ended',function(){ v.removeAttribute('controls'); btn.classList.remove('hidden'); });
+})();
+</script>
+
+<script>
+(function(){
+  var bar=document.getElementById('desktopClaimBar');
+  if(!bar)return;
+  var hero=document.querySelector('header.hero');
+  var threshold=hero?hero.offsetHeight:400;
+  function toggle(){
+    if(window.scrollY>threshold) bar.classList.add('visible');
+    else bar.classList.remove('visible');
+  }
+  window.addEventListener('scroll',toggle,{passive:true});
+  toggle();
 })();
 </script>
 
